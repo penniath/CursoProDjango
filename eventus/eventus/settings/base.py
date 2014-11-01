@@ -1,5 +1,5 @@
-import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+from unipath import Path
+BASE_DIR = Path(__file__).ancestor(3)
 
 SECRET_KEY = '!a^gwfv8psr*$rked!4g#7v@r(38=4bly8ssue%h6c02%*17xt'
 
@@ -20,6 +20,7 @@ DJANGO_APPS = (
 
 LOCAL_APPS = (
         'apps.events',
+        'apps.users',
     )
 
 THIRD_PARTY_APPS = (
@@ -42,7 +43,7 @@ ROOT_URLCONF = 'eventus.urls'
 
 WSGI_APPLICATION = 'eventus.wsgi.application'
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-es'
 
 TIME_ZONE = 'UTC'
 
@@ -51,3 +52,5 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+AUTH_USER_MODEL = 'users.User'
